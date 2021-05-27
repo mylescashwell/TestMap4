@@ -14,6 +14,8 @@
 		0018580A265EE3600002849F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00185808265EE3600002849F /* LaunchScreen.storyboard */; };
 		00185812265EE48D0002849F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00185811265EE48D0002849F /* MapViewController.swift */; };
 		007E8E792660088C00929299 /* GooglePlacesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007E8E782660088C00929299 /* GooglePlacesManager.swift */; };
+		007E8E7B266014C500929299 /* PlaceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007E8E7A266014C500929299 /* PlaceError.swift */; };
+		007E8E7D2660192800929299 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007E8E7C2660192800929299 /* ResultsViewController.swift */; };
 		5E690C1C32C764B62F8F39F7 /* Pods_TestMap4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C9C372F86DDCC4ABFBB6BD /* Pods_TestMap4.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		0018580B265EE3600002849F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00185811265EE48D0002849F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		007E8E782660088C00929299 /* GooglePlacesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesManager.swift; sourceTree = "<group>"; };
+		007E8E7A266014C500929299 /* PlaceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceError.swift; sourceTree = "<group>"; };
+		007E8E7C2660192800929299 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		09C9C372F86DDCC4ABFBB6BD /* Pods_TestMap4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestMap4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		796538C27CE671D52FBA0C0A /* Pods-TestMap4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMap4.debug.xcconfig"; path = "Target Support Files/Pods-TestMap4/Pods-TestMap4.debug.xcconfig"; sourceTree = "<group>"; };
 		967735501B240E8AA2769A1D /* Pods-TestMap4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMap4.release.xcconfig"; path = "Target Support Files/Pods-TestMap4/Pods-TestMap4.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,11 +72,13 @@
 				001857FD265EE35F0002849F /* AppDelegate.swift */,
 				001857FF265EE35F0002849F /* SceneDelegate.swift */,
 				00185811265EE48D0002849F /* MapViewController.swift */,
+				007E8E7C2660192800929299 /* ResultsViewController.swift */,
+				007E8E782660088C00929299 /* GooglePlacesManager.swift */,
+				007E8E7A266014C500929299 /* PlaceError.swift */,
 				00185803265EE35F0002849F /* Main.storyboard */,
 				00185806265EE3600002849F /* Assets.xcassets */,
 				00185808265EE3600002849F /* LaunchScreen.storyboard */,
 				0018580B265EE3600002849F /* Info.plist */,
-				007E8E782660088C00929299 /* GooglePlacesManager.swift */,
 			);
 			path = TestMap4;
 			sourceTree = "<group>";
@@ -208,10 +214,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007E8E7B266014C500929299 /* PlaceError.swift in Sources */,
 				007E8E792660088C00929299 /* GooglePlacesManager.swift in Sources */,
 				001857FE265EE35F0002849F /* AppDelegate.swift in Sources */,
 				00185812265EE48D0002849F /* MapViewController.swift in Sources */,
 				00185800265EE35F0002849F /* SceneDelegate.swift in Sources */,
+				007E8E7D2660192800929299 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
