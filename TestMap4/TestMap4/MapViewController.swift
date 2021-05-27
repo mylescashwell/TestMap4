@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import GooglePlaces
 
 class MapViewController: UIViewController {
     
