@@ -8,7 +8,6 @@
 import UIKit
 import MapKit
 import CoreLocation
-import GooglePlaces
 
 class MapViewController: UIViewController {
     
@@ -20,17 +19,25 @@ class MapViewController: UIViewController {
     // MARK: - Properties
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
-    
+    let searchVC = UISearchController(searchResultsController: ResultsViewController())
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Maps"
+        setUpSearchVC()
         checkLocationServices()
         centerViewOnUserLocation()
     }
     
     
     // MARK: - Functions
+    func setUpSearchVC() {
+        navigationItem.searchController = searchVC
+        searchVC.searchResultsUpdater = self
+        searchVC.searchBar.barTintColor = .systemBackground
+    }
+    
     func setUpLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -81,6 +88,21 @@ extension MapViewController: CLLocationManagerDelegate {
             break
         @unknown default:
             print("error")
+        }
+    }
+}
+
+extension MapViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let query = searchController.searchBar.text, !query.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+        
+        GooglePlacesManager.shared.findPlaces(query: query) { result in
+            switch result {
+            case .success(let places):
+                print(places)
+            case .failure(let error):
+                print("Error in \(#function)\(#line) : \(error.localizedDescription) \n---\n \(error)")
+            }
         }
     }
 }
