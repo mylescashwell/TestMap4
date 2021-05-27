@@ -1,0 +1,16 @@
+PODS:
+  - GooglePlaces (5.0.0)
+
+DEPENDENCIES:
+  - GooglePlaces
+
+SPEC REPOS:
+  trunk:
+    - GooglePlaces
+
+SPEC CHECKSUMS:
+  GooglePlaces: 5d87ca13ed98b7a937e0d8bc7026f718c7263271
+
+PODFILE CHECKSUM: 099b275aa45148f7d7fafa185087e9de825d7b80
+
+COCOAPODS: 1.10.1
