@@ -94,15 +94,38 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let query = searchController.searchBar.text, !query.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+        guard let query = searchController.searchBar.text, !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              let resultsVC = searchController.searchResultsController as? ResultsViewController else { return }
+        
+        resultsVC.delegate = self
         
         GooglePlacesManager.shared.findPlaces(query: query) { result in
-            switch result {
-            case .success(let places):
-                print(places)
-            case .failure(let error):
-                print("Error in \(#function)\(#line) : \(error.localizedDescription) \n---\n \(error)")
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let places):
+                    resultsVC.update(with: places)
+                case .failure(let error):
+                    print("Error in \(#function)\(#line) : \(error.localizedDescription) \n---\n \(error)")
+                }
             }
         }
+    }
+}
+
+// MARK: - Extensions
+extension MapViewController: ResultsViewControllerDelegate {
+    func didTapPlace(with coordinates: CLLocationCoordinate2D) {
+        searchVC.searchBar.resignFirstResponder()
+        searchVC.dismiss(animated: true)
+        
+        let annotations = mapView.annotations
+        mapView.removeAnnotations(annotations)
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinates
+        mapView.addAnnotation(pin)
+        mapView.setRegion(MKCoordinateRegion(center: coordinates,
+                                             span: MKCoordinateSpan(latitudeDelta: 0.3,
+                                                                    longitudeDelta: 0.3)), animated: true)
     }
 }

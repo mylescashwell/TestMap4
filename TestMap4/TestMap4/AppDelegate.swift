@@ -5,8 +5,8 @@
 //  Created by Myles Cashwell on 5/26/21.
 //
 
-import UIKit
 import GooglePlaces
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSPlacesClient.provideAPIKey("AIzaSyCAPDK8ROD4n6KJH5V0NtzgjpLt-KOU7oA")
+        GMSPlacesClient.provideAPIKey("AIzaSyAFy56UXmRHgnwPPsAHb6vA4wkGGf_8XWo")
         return true
     }
 
